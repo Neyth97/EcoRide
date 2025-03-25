@@ -1,32 +1,35 @@
 /* ********************* PAGE D'ACCUEIL ********************* */
 
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 .logo {
     width: 100px;
     height: auto;
 }
 
 
-/* Modifier la couleur des liens du menu */
+/* Modifie la couleur des liens du menu */
 .navbar-nav .nav-link {
+  font-family: 'Poppins', sans-serif; /* Changer la police du texte */
     color: #2196F3 !important; /* Change la couleur du texte */
     /* espace les liens entre eux de façon égale */
     margin-right: 20px;
     margin-left: 20px;
   }
   
-  /* Modifier la couleur des liens du menu au survol */
+  /* Modifie la couleur des liens du menu au survol */
   .navbar-nav .nav-link:hover {
     color: #0d47a1 !important; /* Bleu plus foncé au survol */
   }
   
-  /* Modifier la couleur du bouton Connexion */
+  /* Modifie la couleur du bouton Connexion */
   .btn-primary {
     background-color: #2196F3 !important; /* Change la couleur de fond */
     border-color: #2196F3 !important; /* Change la bordure */
   }
   
-  /* Modifier la couleur du bouton Connexion au survol */
+  /* Modifie la couleur du bouton Connexion au survol */
   .btn-primary:hover {
     background-color: #0d47a1 !important; /* Bleu plus foncé */
     border-color: #0d47a1 !important;
