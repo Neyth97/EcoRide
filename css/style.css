@@ -3,6 +3,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
+/* **** Barre de navigation **** */
+
 .logo {
     width: 100px;
     height: auto;
@@ -40,4 +42,13 @@
   .navbar-nav {
     margin-right: 30px; /* Annule ms-auto et pousse le menu légèrement à gauche */
     margin-left: 10px; /* Ajuste la distance depuis la gauche */
+  }
+
+
+  /* **** Section Bannière **** */
+
+  .hero-image {
+    width: 100%; /* L’image prend toute la largeur de son conteneur */
+    max-height: 500px; /* Définit une hauteur max pour ne pas qu’elle soit trop grande */
+    object-fit: cover; /* Coupe l’image proprement si elle est trop grande */
   }
