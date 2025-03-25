@@ -48,8 +48,13 @@
 
   /* **** Section Bannière **** */
 
-  .hero-image {
-    width: 100%; /* L’image prend toute la largeur de son conteneur */
-    max-height: 500px; /* Définit une hauteur max pour ne pas qu’elle soit trop grande */
-    object-fit: cover; /* Coupe l’image proprement si elle est trop grande */
+  .hero {
+    position: relative;
+    background: url("../assets/images/hero-image.jpg") center/cover no-repeat; /* Image de fond */
+    height: 500px; /* Taille du fond */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white; 
   }
