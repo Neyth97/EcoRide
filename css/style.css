@@ -14,7 +14,7 @@
 
 /* Modifie la couleur des liens du menu */
 .navbar-nav .nav-link {
-  font-family: 'Poppins', sans-serif; /* Changer la police du texte */
+  font-family: 'Poppins', sans-serif; /* Change la police du texte */
     color: #2196F3 !important; /* Change la couleur du texte */
     /* espace les liens entre eux de façon égale */
     margin-right: 20px;
@@ -57,4 +57,5 @@
     align-items: center;
     justify-content: center;
     color: white; 
+    font-family: 'Poppins', sans-serif; /* Change la police du texte */
   }
