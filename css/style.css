@@ -110,6 +110,10 @@
   justify-content: center; 
 }
 
+.input-group-text {
+  cursor: pointer; /* Permet de cliquer sur l'icône calendrier */
+}
+
 /* Styles pour les écrans mobiles */
 @media (max-width: 768px) {
   .form-container {
