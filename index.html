@@ -11,7 +11,10 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
   </head>
   <body>
     <!-- barre de navigation -->
@@ -73,44 +76,68 @@
 
     <!--Section de recherche-->
 
+    <!-- champ de départ -->
 
     <div class="form-container">
-    <select class="form-select w-auto" id="depart">
-      <option selected disabled>Départ</option>
-      <option value="paris">Paris</option>
-      <option value="lyon">Lyon</option>
-      <option value="marseille">Marseille</option>
-      <option value="bordeaux">Bordeaux</option>
-      <option value="lille">Lille</option>
-      <option value="nantes">Nantes</option>
-      <option value="strasbourg">Strasbourg</option>
-      <option value="toulouse">Toulouse</option>
-      <option value="nice">Nice</option>
-      <option value="montpellier">Montpellier</option>
-      <option value="rennes">Rennes</option>
-  </select>
+      <select class="form-select w-auto" id="depart">
+        <option selected disabled>Départ</option>
+        <option value="paris">Paris</option>
+        <option value="lyon">Lyon</option>
+        <option value="marseille">Marseille</option>
+        <option value="bordeaux">Bordeaux</option>
+        <option value="lille">Lille</option>
+        <option value="nantes">Nantes</option>
+        <option value="strasbourg">Strasbourg</option>
+        <option value="toulouse">Toulouse</option>
+        <option value="nice">Nice</option>
+        <option value="montpellier">Montpellier</option>
+        <option value="rennes">Rennes</option>
+      </select>
 
-  <select class="form-select w-auto" id="destination">
-    <option selected disabled>Destination</option>
-    <option value="paris">Paris</option>
-    <option value="lyon">Lyon</option>
-    <option value="marseille">Marseille</option>
-    <option value="bordeaux">Bordeaux</option>
-    <option value="lille">Lille</option>
-    <option value="nantes">Nantes</option>
-    <option value="strasbourg">Strasbourg</option>
-    <option value="toulouse">Toulouse</option>
-    <option value="nice">Nice</option>
-    <option value="montpellier">Montpellier</option>
-    <option value="rennes">Rennes</option>
-</select>
+      <!-- champ de destination -->
 
-<input type="text" id="datepicker" class="form-control w-auto" placeholder="Sélectionnez une date">
-</div>
+      <select class="form-select w-auto" id="destination">
+        <option selected disabled>Destination</option>
+        <option value="paris">Paris</option>
+        <option value="lyon">Lyon</option>
+        <option value="marseille">Marseille</option>
+        <option value="bordeaux">Bordeaux</option>
+        <option value="lille">Lille</option>
+        <option value="nantes">Nantes</option>
+        <option value="strasbourg">Strasbourg</option>
+        <option value="toulouse">Toulouse</option>
+        <option value="nice">Nice</option>
+        <option value="montpellier">Montpellier</option>
+        <option value="rennes">Rennes</option>
+      </select>
+
+      <!-- champ de date -->
+
+      <input
+        type="text"
+        id="datepicker"
+        class="form-control w-auto"
+        placeholder="Sélectionnez une date"
+      />
+
+      <!-- champ de passagers -->
+
+      <select class="form-select w-auto" id="passagers">
+        <option selected disabled>Nombre de passagers</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+
+      <!-- bouton de recherche -->
+
+      <button class="btn btn-primary w-auto" id="recherche">
+        Rechercher
+      </button>
 
 
-
- 
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -119,6 +146,5 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="javascript/date.js"></script>
-    
   </body>
 </html>
