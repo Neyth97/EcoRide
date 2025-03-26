@@ -146,8 +146,8 @@
 /* **** DESCRIPTION DU SITE **** */
 
 .objectif-section {
-  background-color: #f9f9f9; /* Couleur de fond légère */
-  font-family: 'Roboto', sans-serif; /* Police du texte */
+  background-color: #f9f9f9; 
+  font-family: 'Roboto', sans-serif; 
 }
 
 .objectif-section h2 {
@@ -160,5 +160,29 @@
 .objectif-section p {
   font-size: 18px;
   line-height: 25.6px;
+}
+
+
+.priorite-section {
+  background-color: #f9f9f9; 
+  font-family: 'Roboto', sans-serif; 
+}
+
+.priorite-section h2 {
+  margin-bottom: 30px;
+  font-family: 'Poppins', sans-serif;
+  color: #4CAF50 !important; 
+}
+
+.priorite-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.priorite-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
