@@ -186,3 +186,32 @@
   border-radius: 8px;
 }
 
+
+
+/* **** SECTION CONTACT PAGE ACCUEIL **** */
+
+.contact-section {
+  background-color: #4CAF50;
+}
+
+.contact-section h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.contact-section p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.contact-section .btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #4CAF50; /* Change la couleur du texte */
+  background-color: white; /* Assure un fond blanc */
+  border: 2px solid #4CAF50; /* Ajoute une bordure verte */
+}
