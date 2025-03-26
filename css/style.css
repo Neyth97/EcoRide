@@ -6,7 +6,7 @@
 /* **** BARRE DE NAVIGATION **** */
 
 .logo {
-    width: 100px;
+    width: 120px;
     height: auto;
 }
 
@@ -214,4 +214,38 @@
   color: #4CAF50; /* Change la couleur du texte */
   background-color: white; /* Assure un fond blanc */
   border: 2px solid #4CAF50; /* Ajoute une bordure verte */
+}
+
+
+/* **** SECTION FOOTER **** */  
+
+.footer {
+  background-color: #f8f9fa; /* Couleur de fond claire */
+  border-top: 1px solid #ddd; /* Ligne de séparation en haut */
+}
+
+.footer img {
+  max-width: 100px; /* Taille maximale du logo */
+  height: auto;
+}
+
+.footer p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  margin: 0;
+  color: #333; /* Couleur du texte */
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.footer a {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: #333; /* Couleur du lien */
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.footer a:hover {
+  text-decoration: underline; /* Soulignement au survol */
 }
