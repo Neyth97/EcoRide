@@ -52,10 +52,33 @@
     position: relative;
     background: url("../assets/images/hero-image.jpg") center/cover no-repeat; /* Image de fond */
     height: 500px; /* Taille du fond */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white; 
     font-family: 'Poppins', sans-serif; /* Change la police du texte */
   }
+
+  /* Positionnement des textes */
+.hero-title {
+  position: absolute;
+  top: 10%; /* Ajuste la position verticale */
+  left: 25%; /* Ajuste la position horizontale */
+  font-size: 38px;
+  font-weight: 500;
+  color: white;
+}
+
+.hero-subtitle {
+  position: absolute;
+  top: 30%; /* Ajuste verticalement */
+  right: 25%; /* Ajuste horizontalement */
+  font-size: 38px;
+  font-weight: 500;
+  color: white;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 10%; /* Place en bas */
+  left: 28%; /* Ajuste horizontalement */
+  font-size: 38px;
+  font-weight: 500;
+  color: white;
+}
