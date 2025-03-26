@@ -131,3 +131,14 @@
     box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur */
   }
 }
+
+/* separateur */
+
+.separator {
+  border: none; 
+  height: 4px; 
+  background-color: gray; 
+  width: 80%; /* Largeur de la ligne */
+  margin: 300px auto 30px auto; /* Centrage et espace autour */
+
+}
