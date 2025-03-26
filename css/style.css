@@ -82,3 +82,21 @@
   font-weight: 500;
   color: white;
 }
+
+/* **** Section Recherche **** */
+
+.form-select {
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+/* Changer l'apparence au survol */
+.form-select:hover {
+  border-color: #2196F3;
+}
+
+.form-container {
+  display: flex;
+  gap: 5px; /* Espace entre les champs */
+  justify-content: center; 
+}
