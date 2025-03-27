@@ -59,3 +59,35 @@ header {
     margin-right: 30px; /* Annule ms-auto et pousse le menu légèrement à gauche */
     margin-left: 10px; /* Ajuste la distance depuis la gauche */
   }
+
+  /* **** FORMULAIRE DE CONNEXION **** */
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Couleur de fond légère */
+    margin: 0;
+  }
+  
+  .card {
+    border-radius: 10px;
+    background-color: #ffffff; 
+    border: 1px solid #ddd; /* Bordure légère */
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  a {
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
