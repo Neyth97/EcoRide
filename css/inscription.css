@@ -94,6 +94,11 @@ header {
     color: #6c757d;
   }
 
+  .text-danger {
+    color: #dc3545; /* Rouge Bootstrap */
+    font-size: 0.875rem; /* Taille légèrement plus petite */
+  }
+
 
   /* *** FOOTER *** */
 
@@ -127,6 +132,8 @@ header {
   .footer a:hover {
     text-decoration: underline; /* Soulignement au survol */
   }
+
+
 
 
 
