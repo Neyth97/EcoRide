@@ -58,3 +58,64 @@ header {
     margin-right: 30px; /* Annule ms-auto et pousse le menu légèrement à gauche */
     margin-left: 10px; /* Ajuste la distance depuis la gauche */
   }
+
+
+  /* **** FORMULAIRE DE CONTACT **** */
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Couleur de fond légère */
+    margin: 0;
+  }
+  
+  .card {
+    border-radius: 10px;
+    background-color: #ffffff; 
+    border: 1px solid #ddd; /* Bordure légère */
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  textarea {
+    resize: none !important; /* Empêche le redimensionnement du champ message */
+  }
+
+  /* **** FOOTER **** */
+
+  .footer {
+    background-color: #f8f9fa; /* Couleur de fond claire */
+    border-top: 1px solid #ddd; /* Ligne de séparation en haut */
+  }
+  
+  .footer img {
+    max-width: 100px; /* Taille maximale du logo */
+    height: auto;
+  }
+  
+  .footer p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin: 0;
+    color: #333; /* Couleur du texte */
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .footer a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #333; /* Couleur du lien */
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline; /* Soulignement au survol */
+  }
