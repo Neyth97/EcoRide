@@ -2,7 +2,8 @@
 // Utilisation de la librairie flatpickr
 
 flatpickr("#datepicker", {
-    dateFormat: "d/m/Y"
+    dateFormat: "d/m/Y",
+    locale: "fr" //Définit la langue en Français
   });
 
 
