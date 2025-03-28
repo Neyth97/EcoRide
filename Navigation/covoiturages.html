@@ -66,6 +66,80 @@
           </div>
         </nav>
       </header>
+      <!--Bannière du site-->
+
+    <section class="hero">
+        <div class="container text-center">
+        </div>
+      </section>
+
+      <!--Section de recherche-->
+
+    <!-- champ de départ -->
+
+    <div class="form-container">
+        <select class="form-select w-auto" id="depart">
+          <option selected disabled>Départ</option>
+          <option value="paris">Paris</option>
+          <option value="lyon">Lyon</option>
+          <option value="marseille">Marseille</option>
+          <option value="bordeaux">Bordeaux</option>
+          <option value="lille">Lille</option>
+          <option value="nantes">Nantes</option>
+          <option value="strasbourg">Strasbourg</option>
+          <option value="toulouse">Toulouse</option>
+          <option value="nice">Nice</option>
+          <option value="montpellier">Montpellier</option>
+          <option value="rennes">Rennes</option>
+        </select>
+  
+        <!-- champ de destination -->
+  
+        <select class="form-select w-auto" id="destination">
+          <option selected disabled>Destination</option>
+          <option value="paris">Paris</option>
+          <option value="lyon">Lyon</option>
+          <option value="marseille">Marseille</option>
+          <option value="bordeaux">Bordeaux</option>
+          <option value="lille">Lille</option>
+          <option value="nantes">Nantes</option>
+          <option value="strasbourg">Strasbourg</option>
+          <option value="toulouse">Toulouse</option>
+          <option value="nice">Nice</option>
+          <option value="montpellier">Montpellier</option>
+          <option value="rennes">Rennes</option>
+        </select>
+  
+        <!-- champ de date -->
+  
+        <div class="input-group w-auto">
+          <input
+            type="text"
+            id="datepicker"
+            class="form-control"
+            placeholder="Sélectionnez une date"
+          />
+          <span class="input-group-text">
+            <i class="bi bi-calendar"></i> <!-- Icône Bootstrap -->
+          </span>
+        </div>
+  
+        <!-- champ de passagers -->
+  
+        <select class="form-select w-auto" id="passagers">
+          <option selected disabled>Nombre de passagers</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+  
+        <!-- bouton de recherche -->
+  
+        <button class="btn btn-primary" id="recherche">
+          Rechercher
+        </button>
+        </div>
 
 
 
