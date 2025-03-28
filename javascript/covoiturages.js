@@ -32,7 +32,9 @@ document.getElementById("recherche").addEventListener("click", function (e) {
   const erreurRecherche = document.getElementById("erreur-recherche");
 
   // Vérifie que tous les champs sont remplis
-  if (!dateRecherche || !departRecherche || !destinationRecherche || passagersRecherche === "" || passagersRecherche === "Nombre de passagers") {
+  if (!dateRecherche || !departRecherche || departRecherche === "Départ" || 
+      !destinationRecherche || destinationRecherche === "Destination" || 
+      passagersRecherche === "" || passagersRecherche === "Nombre de passagers") {
     erreurRecherche.style.display = "block"; // Affiche le message d'erreur
     erreurRecherche.textContent = "Veuillez remplir tous les champs de recherche.";
     return;
