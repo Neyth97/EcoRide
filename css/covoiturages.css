@@ -152,7 +152,12 @@ header {
     background-color: #0056b3;
   }
 
-
+  .text-danger {
+    color: #dc3545; 
+    font-size: 0.875rem; /* Taille légèrement plus petite */
+    margin-top: 0.5rem;
+    text-align: center; /* Centre le texte horizontalement */
+  }
 
 
 /* **** SECTION FOOTER **** */  
