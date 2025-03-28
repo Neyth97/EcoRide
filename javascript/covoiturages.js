@@ -62,6 +62,11 @@ document.getElementById("recherche").addEventListener("click", function (e) {
     erreurRecherche.style.display = "none"; // Cache le message d'erreur si tout est rempli
   }
 
+  // Affiche les filtres après la recherche
+  const filtersContainer = document.querySelector(".form-container.mt-3");
+  filtersContainer.style.display = "flex"; // Affiche les filtres
+  filtersContainer.style.justifyContent = "center"; // Centre les filtres horizontalement
+
   // Simule des résultats de covoiturages
   const resultats = [
     {
@@ -90,7 +95,7 @@ document.getElementById("recherche").addEventListener("click", function (e) {
     },
   ];
 
-  // Filtre les résultats en fonction des critères
+  // Filtre les résultats en fonction des critères de recherche
   const resultatsFiltres = resultats.filter((covoiturage) => {
     return (
       covoiturage.date === dateRecherche &&
@@ -100,6 +105,9 @@ document.getElementById("recherche").addEventListener("click", function (e) {
     );
   });
 
+  // Applique les filtres supplémentaires
+  const resultatsFiltresAvecOptions = appliquerFiltres(resultatsFiltres);
+
   // Sélectionne les conteneurs
   const resultatsContainer = document.getElementById("resultats-covoiturages");
   const messageParDefaut = document.getElementById("message-par-defaut");
@@ -108,12 +116,12 @@ document.getElementById("recherche").addEventListener("click", function (e) {
   // Vide les résultats précédents
   row.innerHTML = "";
 
-  if (resultatsFiltres.length > 0) {
+  if (resultatsFiltresAvecOptions.length > 0) {
     // Masque le message par défaut
     messageParDefaut.style.display = "none";
 
     // Ajoute chaque covoiturage filtré
-    resultatsFiltres.forEach((covoiturage) => {
+    resultatsFiltresAvecOptions.forEach((covoiturage) => {
       const card = `
         <div class="col-md-6 mb-4">
           <div class="card shadow-sm">

@@ -159,6 +159,22 @@ header {
     text-align: center; /* Centre le texte horizontalement */
   }
 
+/* Centrer le conteneur parent */
+.filters-wrapper {
+  display: flex;
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement si nécessaire */
+  width: 100%; /* Prend toute la largeur */
+  margin-top: 20px; /* Ajoute un espace au-dessus */
+}
+
+/* Centrer les filtres à l'intérieur */
+.form-container.mt-3 {
+  display: none; /* Masque les filtres par défaut */
+  justify-content: center; /* Centre les filtres horizontalement */
+  gap: 10px; /* Ajoute un espace entre les filtres */
+}
+
 
 /* **** SECTION FOOTER **** */  
 

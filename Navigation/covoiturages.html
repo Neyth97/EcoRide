@@ -189,6 +189,46 @@
     </div>
   </div>
 
+  <div class="filters-wrapper text-center">
+    <div class="form-container mt-3">
+      <!-- Filtre écologique -->
+      <select class="form-select w-auto" id="filtre-ecologique">
+        <option value="" selected>Aspect écologique</option>
+        <option value="Oui">Oui</option>
+        <option value="Non">Non</option>
+      </select>
+  
+      <!-- Filtre prix maximum -->
+      <input
+        type="number"
+        id="filtre-prix"
+        class="form-control w-auto"
+        placeholder="Prix maximum (crédits)"
+        min="0"
+      />
+  
+      <!-- Filtre durée maximum -->
+      <input
+        type="number"
+        id="filtre-duree"
+        class="form-control w-auto"
+        placeholder="Durée maximum (minutes)"
+        min="0"
+      />
+  
+      <!-- Filtre note minimale -->
+      <input
+        type="number"
+        id="filtre-note"
+        class="form-control w-auto"
+        placeholder="Note minimale"
+        min="0"
+        max="5"
+        step="0.1"
+      />
+    </div>
+  </div>
+
 
 
 
@@ -229,8 +269,10 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    <script src="../javascript/filtres-covoiturages.js"></script>
     <script src="../javascript/covoiturages.js"></script>
     <script src="../javascript/date.js"></script>
+    
     
     
 </body>
