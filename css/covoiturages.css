@@ -175,6 +175,19 @@ header {
   gap: 10px; /* Ajoute un espace entre les filtres */
 }
 
+/* Ajuste la largeur des champs de filtre */
+.form-container.mt-3 .form-control,
+.form-container.mt-3 .form-select {
+  min-width: 200px; /* Augmente la largeur minimale */
+  max-width: 250px; /* Définit une largeur maximale */
+  text-align: center; /* Centre le texte dans le champ */
+  font-size: 14px; /* Ajuste la taille de la police */
+}
+
+/* Ajuste le champ "Note minimale" */
+#filtre-note {
+  min-width: 220px; /* Augmente la largeur spécifique pour ce champ */
+}
 
 /* **** SECTION FOOTER **** */  
 

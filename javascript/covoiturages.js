@@ -28,10 +28,8 @@ function trouverDateProche(dateRecherche, resultats, departRecherche, destinatio
     // Vérifie que le départ et la destination correspondent
     if (covoiturage.depart === departRecherche && covoiturage.destination === destinationRecherche) {
       const dateCovoiturageObj = new Date(covoiturage.date.split("/").reverse().join("-"));
-      if (!dateProche || dateCovoiturageObj > dateRechercheObj) {
-        if (!dateProche || dateCovoiturageObj < new Date(dateProche.split("/").reverse().join("-"))) {
-          dateProche = covoiturage.date;
-        }
+      if (!dateProche || Math.abs(dateCovoiturageObj - dateRechercheObj) < Math.abs(new Date(dateProche.split("/").reverse().join("-")) - dateRechercheObj)) {
+        dateProche = covoiturage.date;
       }
     }
   });
@@ -39,6 +37,11 @@ function trouverDateProche(dateRecherche, resultats, departRecherche, destinatio
   return dateProche;
 }
 
+// Variables globales pour stocker les résultats
+let resultats = [];
+let resultatsFiltres = [];
+
+// Fonction principale pour gérer la recherche
 document.getElementById("recherche").addEventListener("click", function (e) {
   e.preventDefault(); // Empêche le rechargement de la page
 
@@ -62,13 +65,8 @@ document.getElementById("recherche").addEventListener("click", function (e) {
     erreurRecherche.style.display = "none"; // Cache le message d'erreur si tout est rempli
   }
 
-  // Affiche les filtres après la recherche
-  const filtersContainer = document.querySelector(".form-container.mt-3");
-  filtersContainer.style.display = "flex"; // Affiche les filtres
-  filtersContainer.style.justifyContent = "center"; // Centre les filtres horizontalement
-
   // Simule des résultats de covoiturages
-  const resultats = [
+  resultats = [
     {
       pseudo: "Jean Dupont",
       photo: "../assets/images/profil.jpg",
@@ -87,7 +85,7 @@ document.getElementById("recherche").addEventListener("click", function (e) {
       note: "4.5/5",
       places: 1,
       prix: "12 crédits",
-      date: "13/04/2025",
+      date: "20/04/2025",
       heure: "10:00 - 12:00",
       depart: "Lille",
       destination: "Marseille",
@@ -96,76 +94,86 @@ document.getElementById("recherche").addEventListener("click", function (e) {
   ];
 
   // Filtre les résultats en fonction des critères de recherche
-  const resultatsFiltres = resultats.filter((covoiturage) => {
+  resultatsFiltres = resultats.filter((covoiturage) => {
+    const dateCovoiturage = new Date(covoiturage.date.split("/").reverse().join("-"));
+    const dateRechercheObj = new Date(dateRecherche.split("/").reverse().join("-"));
+
     return (
-      covoiturage.date === dateRecherche &&
+      dateCovoiturage.getTime() === dateRechercheObj.getTime() && // Compare les dates
       covoiturage.depart === departRecherche &&
       covoiturage.destination === destinationRecherche &&
       covoiturage.places >= parseInt(passagersRecherche) // Vérifie le nombre de places
     );
   });
 
-  // Applique les filtres supplémentaires
-  const resultatsFiltresAvecOptions = appliquerFiltres(resultatsFiltres);
+  // Si aucun résultat n'est trouvé, chercher une date proche
+  if (resultatsFiltres.length === 0) {
+    const dateProche = trouverDateProche(dateRecherche, resultats, departRecherche, destinationRecherche);
+    if (dateProche) {
+      console.log("Aucun résultat exact trouvé. Date proche :", dateProche);
+      document.getElementById("message-par-defaut").innerHTML = `
+        <h3 class="text-muted">Aucun covoiturage trouvé pour la date sélectionnée.</h3>
+        <p class="text-muted">Essayez avec la date la plus proche : <strong>${dateProche}</strong>, ou changez le nombre de passagers.</p>
+      `;
+    } else {
+      console.log("Aucun covoiturage trouvé.");
+      document.getElementById("message-par-defaut").innerHTML = `
+        <h3 class="text-muted">Aucun covoiturage trouvé.</h3>
+        <p class="text-muted">Aucun covoiturage disponible pour les critères sélectionnés.</p>
+      `;
+    }
+    document.getElementById("message-par-defaut").style.display = "block";
+    document.getElementById("resultats-covoiturages").style.display = "none";
+    return;
+  }
 
-  // Sélectionne les conteneurs
+  // Affiche les résultats
+  afficherResultats(resultatsFiltres);
+});
+
+// Fonction pour afficher les résultats dans l'interface utilisateur
+function afficherResultats(resultatsFiltres) {
   const resultatsContainer = document.getElementById("resultats-covoiturages");
-  const messageParDefaut = document.getElementById("message-par-defaut");
-  const row = resultatsContainer.querySelector(".row");
+  const filtersContainer = document.querySelector(".form-container.mt-3"); // Sélectionne les filtres
+  resultatsContainer.innerHTML = ""; // Vide le conteneur avant d'ajouter les nouveaux résultats
 
-  // Vide les résultats précédents
-  row.innerHTML = "";
-
-  if (resultatsFiltresAvecOptions.length > 0) {
-    // Masque le message par défaut
-    messageParDefaut.style.display = "none";
-
-    // Ajoute chaque covoiturage filtré
-    resultatsFiltresAvecOptions.forEach((covoiturage) => {
+  if (resultatsFiltres.length > 0) {
+    resultatsFiltres.forEach((covoiturage) => {
       const card = `
-        <div class="col-md-6 mb-4">
-          <div class="card shadow-sm">
-            <div class="card-body">
-              <div class="d-flex align-items-center mb-3">
-                <img
-                  src="${covoiturage.photo}"
-                  alt="Photo du chauffeur"
-                  class="rounded-circle me-3"
-                  style="width: 50px; height: 50px;"
-                />
-                <div>
-                  <h5 class="mb-0">${covoiturage.pseudo}</h5>
-                  <small class="text-muted">Note : ${covoiturage.note}</small>
-                </div>
+        <div class="card shadow-sm mb-4" style="max-width: 350px; margin: auto;">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <img
+                src="${covoiturage.photo}"
+                alt="Photo de ${covoiturage.pseudo}"
+                class="rounded-circle me-3"
+                style="width: 50px; height: 50px;"
+              />
+              <div>
+                <h5 class="mb-0">${covoiturage.pseudo}</h5>
+                <small class="text-muted">Note : ${covoiturage.note}</small>
               </div>
-              <p><strong>Nombre de places restantes :</strong> ${covoiturage.places}</p>
-              <p><strong>Prix :</strong> ${covoiturage.prix}</p>
-              <p><strong>Date et heure :</strong> ${covoiturage.date}, ${covoiturage.heure}</p>
-              <p><strong>Écologique :</strong> ${covoiturage.ecologique}</p>
-              <button class="btn btn-primary w-100">Détail</button>
             </div>
+            <p><strong>Nombre de places restantes :</strong> ${covoiturage.places}</p>
+            <p><strong>Prix :</strong> ${covoiturage.prix}</p>
+            <p><strong>Date :</strong> ${covoiturage.date}</p>
+            <p><strong>Heure :</strong> ${covoiturage.heure}</p>
+            <p><strong>Départ :</strong> ${covoiturage.depart}</p>
+            <p><strong>Destination :</strong> ${covoiturage.destination}</p>
+            <p><strong>Écologique :</strong> ${covoiturage.ecologique}</p>
+            <button class="btn btn-primary btn-sm w-100">Détail</button>
           </div>
         </div>
       `;
-      row.innerHTML += card;
+      resultatsContainer.innerHTML += card; // Ajoute la carte au conteneur
     });
 
-    // Affiche les résultats
-    resultatsContainer.style.display = "block";
+    resultatsContainer.style.display = "block"; // Affiche le conteneur des résultats
+    filtersContainer.style.display = "flex"; // Affiche les filtres
+    document.getElementById("message-par-defaut").style.display = "none"; // Cache le message par défaut
   } else {
-    // Si aucun résultat, affiche le message par défaut
-    const dateProche = trouverDateProche(dateRecherche, resultats, departRecherche, destinationRecherche);
-    if (dateProche) {
-      messageParDefaut.innerHTML = `
-        <p>Aucun covoiturage disponible pour la date sélectionnée.</p>
-        <p>Essayez de modifier votre date de voyage pour le <strong>${dateProche}</strong>, ou de changer votre nombre de passagers.</p>
-      `;
-    } else {
-      messageParDefaut.innerHTML = `
-        <p>Aucun covoiturage disponible pour le moment.</p>
-      `;
-    }
-    messageParDefaut.style.display = "block";
-    resultatsContainer.style.display = "none";
+    resultatsContainer.innerHTML = "<p class='text-center'>Aucun covoiturage trouvé.</p>";
+    resultatsContainer.style.display = "block"; // Affiche le conteneur avec un message
+    filtersContainer.style.display = "flex"; // Affiche les filtres même si aucun résultat
   }
-});
+}

@@ -193,7 +193,7 @@
     <div class="form-container mt-3">
       <!-- Filtre écologique -->
       <select class="form-select w-auto" id="filtre-ecologique">
-        <option value="" selected>Aspect écologique</option>
+        <option value="" selected disabled>Aspect écologique</option>
         <option value="Oui">Oui</option>
         <option value="Non">Non</option>
       </select>
@@ -208,13 +208,14 @@
       />
   
       <!-- Filtre durée maximum -->
-      <input
-        type="number"
-        id="filtre-duree"
-        class="form-control w-auto"
-        placeholder="Durée maximum (minutes)"
-        min="0"
+     <input
+       type="number"
+       id="filtre-duree"
+       class="form-control w-auto"
+       placeholder="Durée maximum (heures)"
+       min="0"
       />
+      
   
       <!-- Filtre note minimale -->
       <input
