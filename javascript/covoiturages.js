@@ -19,6 +19,17 @@ function formatDate(date) {
   return ""; // Retourne une chaîne vide si le format est inattendu
 }
 
+// Fonction pour récupérer les paramètres de l'URL
+function getURLParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    depart: params.get("depart"),
+    destination: params.get("destination"),
+    date: params.get("date"),
+    passagers: params.get("passagers"),
+  };
+}
+
 // Fonction pour trouver la date la plus proche
 function trouverDateProche(dateRecherche, resultats, departRecherche, destinationRecherche) {
   const dateRechercheObj = new Date(dateRecherche.split("/").reverse().join("-")); // Convertit la date au format Date
@@ -177,3 +188,18 @@ function afficherResultats(resultatsFiltres) {
     filtersContainer.style.display = "flex"; // Affiche les filtres même si aucun résultat
   }
 }
+
+// Vérifie si des paramètres sont passés dans l'URL
+document.addEventListener("DOMContentLoaded", () => {
+  const params = getURLParams();
+
+  if (params.depart && params.destination && params.date && params.passagers) {
+    document.getElementById("depart").value = params.depart;
+    document.getElementById("destination").value = params.destination;
+    document.getElementById("datepicker").value = params.date;
+    document.getElementById("passagers").value = params.passagers;
+
+    // Simule un clic sur le bouton "Rechercher"
+    document.getElementById("recherche").click();
+  }
+});

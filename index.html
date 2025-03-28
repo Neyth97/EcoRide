@@ -79,7 +79,7 @@
 
     <!-- champ de départ -->
 
-    <div class="form-container">
+    <div class="form-container" id="form-recherche">
       <select class="form-select w-auto" id="depart">
         <option selected disabled>Départ</option>
         <option value="paris">Paris</option>
@@ -143,6 +143,10 @@
       </button>
       </div>
 
+      <div id="erreur-recherche" class="text-danger mt-2" style="display: none;">
+        Veuillez remplir tous les champs de recherche.
+      </div>
+
       <!-- Separateur -->
       <hr class="separator">
 
@@ -190,7 +194,7 @@
               <p>
                 C'est pourquoi, tous nos conducteurs sont soigneusement vérifiés avant de rejoindre notre plateforme. Vous pouvez voyager en toute sérénité, sachant que chaque conducteur répond à nos standards rigoureux de qualité et de sécurité.
               </p>
-              <button class="btn btn-primary">Covoiturages</button>
+                <a href="navigation/covoiturages.html" class="btn btn-primary">Covoiturages</a>
             </div>
             <!-- Colonne pour l'image -->
             <div class="col-md-6">
@@ -248,6 +252,7 @@
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
+    <script src="javascript/index.js"></script>
     <script src="javascript/date.js"></script>
   </body>
 </html>
