@@ -19,6 +19,26 @@ function formatDate(date) {
   return ""; // Retourne une chaîne vide si le format est inattendu
 }
 
+// Fonction pour trouver la date la plus proche
+function trouverDateProche(dateRecherche, resultats, departRecherche, destinationRecherche) {
+  const dateRechercheObj = new Date(dateRecherche.split("/").reverse().join("-")); // Convertit la date au format Date
+  let dateProche = null;
+
+  resultats.forEach((covoiturage) => {
+    // Vérifie que le départ et la destination correspondent
+    if (covoiturage.depart === departRecherche && covoiturage.destination === destinationRecherche) {
+      const dateCovoiturageObj = new Date(covoiturage.date.split("/").reverse().join("-"));
+      if (!dateProche || dateCovoiturageObj > dateRechercheObj) {
+        if (!dateProche || dateCovoiturageObj < new Date(dateProche.split("/").reverse().join("-"))) {
+          dateProche = covoiturage.date;
+        }
+      }
+    }
+  });
+
+  return dateProche;
+}
+
 document.getElementById("recherche").addEventListener("click", function (e) {
   e.preventDefault(); // Empêche le rechargement de la page
 
@@ -126,6 +146,17 @@ document.getElementById("recherche").addEventListener("click", function (e) {
     resultatsContainer.style.display = "block";
   } else {
     // Si aucun résultat, affiche le message par défaut
+    const dateProche = trouverDateProche(dateRecherche, resultats, departRecherche, destinationRecherche);
+    if (dateProche) {
+      messageParDefaut.innerHTML = `
+        <p>Aucun covoiturage disponible pour la date sélectionnée.</p>
+        <p>Essayez de modifier votre date de voyage pour le <strong>${dateProche}</strong>, ou de changer votre nombre de passagers.</p>
+      `;
+    } else {
+      messageParDefaut.innerHTML = `
+        <p>Aucun covoiturage disponible pour le moment.</p>
+      `;
+    }
     messageParDefaut.style.display = "block";
     resultatsContainer.style.display = "none";
   }
