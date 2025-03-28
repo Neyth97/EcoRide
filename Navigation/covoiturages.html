@@ -142,6 +142,51 @@
         </div>
 
 
+        <!-- Ajout de la vue des covoiturages -->
+
+
+        <!-- Message par défaut -->
+<div id="message-par-defaut" class="container mt-5 text-center">
+    <h3 class="text-muted">Aucun covoiturage affiché pour le moment</h3>
+    <p class="text-muted">
+      Utilisez les filtres ci-dessus pour rechercher des covoiturages disponibles.
+    </p>
+  </div>
+
+        <!-- Résultats des covoiturages -->
+<div id="resultats-covoiturages" class="container mt-5" style="display: none;">
+    <h3 class="text-center mb-4">Covoiturages disponibles</h3>
+    <div class="row">
+      <!-- Exemple de covoiturage -->
+      <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <img
+                src="../assets/images/profil.jpg"
+                alt="Photo du chauffeur"
+                class="rounded-circle me-3"
+                style="width: 50px; height: 50px;"
+              />
+              <div>
+                <h5 class="mb-0">Pseudo du chauffeur</h5>
+                <small class="text-muted">Note : 4.8/5</small>
+              </div>
+            </div>
+            <p><strong>Nombre de places restantes :</strong> 2</p>
+            <p><strong>Prix :</strong> 15€</p>
+            <p><strong>Date et heure :</strong> 12/04/2025, 14:00 - 16:30</p>
+            <p><strong>Écologique :</strong> Oui</p>
+            <button class="btn btn-primary w-100">Détail</button>
+          </div>
+        </div>
+      </div>
+      <!-- Fin exemple -->
+    </div>
+  </div>
+
+
+
 
 
 
@@ -181,6 +226,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fr.js"></script>
     <script src="../javascript/date.js"></script>
+    <script src="../javascript/covoiturages.js"></script>
     
 </body>
 </html>

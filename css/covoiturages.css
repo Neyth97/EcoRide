@@ -111,6 +111,48 @@ header {
 
 
 
+/* **** VUE COVOITURAGES **** */
+
+#message-par-defaut {
+    color: #6c757d; /* Couleur grise pour le texte */
+    margin-top: 2rem;
+  }
+  
+  #message-par-defaut h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  #message-par-defaut p {
+    font-size: 1rem;
+  }
+
+.card {
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+  }
+  
+  .card-body h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .card-body p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card-body button {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .card-body button:hover {
+    background-color: #0056b3;
+  }
+
+
 
 
 /* **** SECTION FOOTER **** */  
