@@ -1,20 +1,22 @@
-// Ajout de l'outil de sélection de date
-// Utilisation de la librairie flatpickr
+document.addEventListener("DOMContentLoaded", function () {
+  const dateInput = document.querySelector("#datepicker");
 
-flatpickr("#datepicker", {
-    dateFormat: "d/m/Y",
-    locale: "fr" //Définit la langue en Français
-  });
+  if (dateInput) {
+    // Supprime l'attribut "type" pour éviter les conflits avec le sélecteur natif
+    dateInput.removeAttribute("type");
 
-
-
-  document.addEventListener("DOMContentLoaded", function () {
-    // Sélectionne l'icône de calendrier et le champ de date
-    const calendarIcon = document.querySelector(".input-group-text");
-    const dateInput = document.querySelector("#datepicker");
-  
-    // Ajoute un événement "click" sur l'icône
-    calendarIcon.addEventListener("click", function () {
-      dateInput.focus(); // Simule un clic dans le champ de date
+    // Initialise flatpickr
+    flatpickr("#datepicker", {
+      dateFormat: "d/m/Y", // Format de la date
+      locale: "fr", // Définit la langue en Français
     });
-  });
+
+    // Ajout d'un événement pour l'icône de calendrier
+    const calendarIcon = document.querySelector(".input-group-text");
+    if (calendarIcon) {
+      calendarIcon.addEventListener("click", function () {
+        dateInput.focus(); // Simule un clic dans le champ de date
+      });
+    }
+  }
+});

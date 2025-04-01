@@ -149,6 +149,27 @@ header {
   }
 }
 
+/* Désactive l'apparence native des champs de date */
+input[type="text"]#datepicker {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer; /* Ajoute un curseur pour indiquer que le champ est interactif */
+  background-color: white; /* Assure un fond blanc */
+}
+
+/* Désactive complètement l'apparence native des champs */
+#datepicker {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid #ccc; /* Ajoute une bordure pour un rendu uniforme */
+  padding: 10px;
+  border-radius: 4px;
+}
+
 /* separateur */
 
 .separator {
