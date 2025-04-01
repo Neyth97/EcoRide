@@ -111,8 +111,8 @@ document.getElementById("recherche").addEventListener("click", function (e) {
 
     return (
       dateCovoiturage.getTime() === dateRechercheObj.getTime() && // Compare les dates
-      covoiturage.depart === departRecherche &&
-      covoiturage.destination === destinationRecherche &&
+      covoiturage.depart.toLowerCase() === departRecherche.toLowerCase() && // Compare les départs
+      covoiturage.destination.toLowerCase() === destinationRecherche.toLowerCase() && // Compare les destinations
       covoiturage.places >= parseInt(passagersRecherche) // Vérifie le nombre de places
     );
   });
@@ -194,12 +194,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const params = getURLParams();
 
   if (params.depart && params.destination && params.date && params.passagers) {
-    document.getElementById("depart").value = params.depart;
-    document.getElementById("destination").value = params.destination;
+    const departSelect = document.getElementById("depart");
+    const destinationSelect = document.getElementById("destination");
+
+    // Définit les valeurs des champs <select>
+    departSelect.value = params.depart;
+    destinationSelect.value = params.destination;
+
+    // Vérifie si les valeurs correspondent à une option valide
+    if (!Array.from(departSelect.options).some(option => option.value === params.depart)) {
+      departSelect.value = ""; // Réinitialise si la valeur est invalide
+    }
+    if (!Array.from(destinationSelect.options).some(option => option.value === params.destination)) {
+      destinationSelect.value = ""; // Réinitialise si la valeur est invalide
+    }
+
     document.getElementById("datepicker").value = params.date;
     document.getElementById("passagers").value = params.passagers;
 
-    // Simule un clic sur le bouton "Rechercher"
+    // Simule un clic sur le bouton "Rechercher" pour afficher les résultats
     document.getElementById("recherche").click();
+  } else {
+    // Affiche un message d'erreur si des paramètres sont manquants
+    const erreurRecherche = document.getElementById("erreur-recherche");
+    erreurRecherche.style.display = "block";
+    erreurRecherche.textContent = "Veuillez remplir tous les champs de recherche.";
   }
 });
