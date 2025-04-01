@@ -193,31 +193,37 @@ function afficherResultats(resultatsFiltres) {
 document.addEventListener("DOMContentLoaded", () => {
   const params = getURLParams();
 
-  if (params.depart && params.destination && params.date && params.passagers) {
-    const departSelect = document.getElementById("depart");
-    const destinationSelect = document.getElementById("destination");
+  // Cache le message d'erreur par défaut
+  const erreurRecherche = document.getElementById("erreur-recherche");
+  erreurRecherche.style.display = "none";
 
-    // Définit les valeurs des champs <select>
-    departSelect.value = params.depart;
-    destinationSelect.value = params.destination;
+  // Vérifie si des paramètres sont présents dans l'URL
+  if (params.depart || params.destination || params.date || params.passagers) {
+    if (params.depart && params.destination && params.date && params.passagers) {
+      const departSelect = document.getElementById("depart");
+      const destinationSelect = document.getElementById("destination");
 
-    // Vérifie si les valeurs correspondent à une option valide
-    if (!Array.from(departSelect.options).some(option => option.value === params.depart)) {
-      departSelect.value = ""; // Réinitialise si la valeur est invalide
+      // Définit les valeurs des champs <select>
+      departSelect.value = params.depart;
+      destinationSelect.value = params.destination;
+
+      // Vérifie si les valeurs correspondent à une option valide
+      if (!Array.from(departSelect.options).some(option => option.value === params.depart)) {
+        departSelect.value = ""; // Réinitialise si la valeur est invalide
+      }
+      if (!Array.from(destinationSelect.options).some(option => option.value === params.destination)) {
+        destinationSelect.value = ""; // Réinitialise si la valeur est invalide
+      }
+
+      document.getElementById("datepicker").value = params.date;
+      document.getElementById("passagers").value = params.passagers;
+
+      // Simule un clic sur le bouton "Rechercher" pour afficher les résultats
+      document.getElementById("recherche").click();
+    } else {
+      // Affiche un message d'erreur uniquement si des paramètres sont présents mais incomplets
+      erreurRecherche.style.display = "block";
+      erreurRecherche.textContent = "Veuillez remplir tous les champs de recherche.";
     }
-    if (!Array.from(destinationSelect.options).some(option => option.value === params.destination)) {
-      destinationSelect.value = ""; // Réinitialise si la valeur est invalide
-    }
-
-    document.getElementById("datepicker").value = params.date;
-    document.getElementById("passagers").value = params.passagers;
-
-    // Simule un clic sur le bouton "Rechercher" pour afficher les résultats
-    document.getElementById("recherche").click();
-  } else {
-    // Affiche un message d'erreur si des paramètres sont manquants
-    const erreurRecherche = document.getElementById("erreur-recherche");
-    erreurRecherche.style.display = "block";
-    erreurRecherche.textContent = "Veuillez remplir tous les champs de recherche.";
   }
 });
