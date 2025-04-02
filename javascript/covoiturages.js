@@ -172,7 +172,7 @@ function afficherResultats(resultatsFiltres) {
             <p><strong>Départ :</strong> ${covoiturage.depart}</p>
             <p><strong>Destination :</strong> ${covoiturage.destination}</p>
             <p><strong>Écologique :</strong> ${covoiturage.ecologique}</p>
-            <button class="btn btn-primary btn-sm w-100">Détail</button>
+            <a href="detail.html" class="btn btn-primary btn-sm w-100">Détail</a>
           </div>
         </div>
       `;
